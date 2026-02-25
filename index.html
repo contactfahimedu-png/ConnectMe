@@ -2,143 +2,155 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ConnectMe - Fahim</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ConnectMe - Commando Fahim</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+/* Smooth Mobile Experience */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; -webkit-tap-highlight-color: transparent; }
 
-body{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#667eea,#764ba2);
-    overflow:hidden;
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 20px;
     transition: 0.5s;
+    overflow-x: hidden;
 }
 
-.card{
-    width:360px;
-    padding:30px;
-    border-radius:25px;
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,0.2);
-    box-shadow:0 10px 40px rgba(0,0,0,0.35);
-    text-align:center;
-    color:white;
-    animation:fadeIn 1.2s ease;
-}
-
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-.profile-wrapper{
-    width:110px; height:110px;
-    margin:auto;
-    border-radius:50%;
-    padding:4px;
-    background:linear-gradient(45deg,#00f5ff,#ff00c8);
-    box-shadow:0 0 20px rgba(255,255,255,0.4);
-}
-
-.profile-img{ width:100%; height:100%; border-radius:50%; object-fit:cover; }
-
-h2{ margin-top:15px; font-weight:600; font-size: 22px; }
-.bio{ font-size:13px; margin:5px 0 15px 0; opacity:0.9; }
-
-.contact-mini { margin: 15px 0; }
-.input-small {
+/* Glassmorphism Card */
+.card {
     width: 100%;
-    padding: 10px 15px;
-    margin-bottom: 8px;
-    border-radius: 20px;
-    border: none;
-    background: rgba(255,255,255,0.2);
+    max-width: 380px;
+    padding: 30px 20px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    text-align: center;
     color: white;
-    font-size: 12px;
-    outline: none;
+    animation: fadeIn 1s ease-out;
 }
-.input-small::placeholder { color: rgba(255,255,255,0.7); }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-wrapper {
+    width: 110px; height: 110px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(45deg, #00f5ff, #ff00c8);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+
+h2 { font-size: 24px; font-weight: 600; margin-bottom: 5px; }
+.bio { font-size: 13px; opacity: 0.9; margin-bottom: 20px; letter-spacing: 0.5px; }
+
+/* Mobile Optimized Buttons */
+.links-container { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+
+.btn {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    padding: 12px; border-radius: 15px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white; text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn:active { transform: scale(0.96); background: rgba(255, 255, 255, 0.3); }
+
+/* Icons Color */
+.fa-facebook { color: #1877F2; }
+.fa-instagram { color: #E4405F; }
+.fa-youtube { color: #FF0000; }
+.fa-whatsapp { color: #25D366; }
+
+/* Contact Form */
+.contact-mini { margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+.input-small {
+    width: 100%; padding: 12px 15px; margin-bottom: 10px;
+    border-radius: 12px; border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white; font-size: 13px; outline: none;
+}
+.input-small::placeholder { color: rgba(255, 255, 255, 0.6); }
 
 .send-btn {
-    width: 100%;
-    padding: 10px;
-    border-radius: 20px;
-    border: none;
-    background: #00f5ff;
-    color: #333;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 12px;
-    transition: 0.3s;
+    width: 100%; padding: 12px; border-radius: 12px; border: none;
+    background: #00f5ff; color: #333; font-weight: 600;
+    cursor: pointer; transition: 0.3s;
 }
 
-.send-btn:hover { background: #fff; transform: scale(1.02); }
-
-.btn{
-    display:flex; align-items:center; justify-content:center; gap:10px;
-    margin:6px 0; padding:10px;
-    border-radius:30px; background:rgba(255,255,255,0.2);
-    color:white; text-decoration:none; transition:0.3s; font-size:13px;
+/* Footer Actions */
+.quick { display: flex; justify-content: space-between; gap: 8px; margin-top: 20px; }
+.quick button {
+    flex: 1; padding: 10px 5px; border: none; border-radius: 12px;
+    background: white; color: #333; font-size: 11px; font-weight: 600;
 }
 
-.btn:hover{ background:white; color:#333; transform:translateY(-2px); }
-
-.quick{ display:flex; justify-content:space-between; margin-top:15px; gap: 5px; }
-.quick button{
-    flex:1; padding:8px; border:none; border-radius:15px;
-    background:white; color:#333; cursor:pointer; font-size:11px; transition:0.3s;
-}
-
-.quick button:hover{ background:#333; color:white; }
-.dark{ background:linear-gradient(135deg,#141e30,#243b55); }
+.dark { background: #1a1a2e; }
 </style>
 </head>
 <body>
 
-<audio id="bgm" loop autoplay>
+<audio id="bgm" loop>
     <source src="bgm.mp3" type="audio/mpeg">
 </audio>
 
 <div class="card">
     <div class="profile-wrapper">
-        <img src="profile.jpg" class="profile-img" alt="Profile">
+        <img src="profile.jpg" class="profile-img" alt="Fahim">
     </div>
 
-    <h2>Commando Fahim</h2>
+    <h2>Mr. Fahim</h2>
     <p class="bio">Digital Creator | Dream Builder</p>
 
-    <div style="margin-top: 10px;">
-        <a href="https://www.facebook.com/share/1AYsgrjVQV/" class="btn" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-        <a href="https://wa.me/8801707549628" class="btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <div class="links-container">
+        <a href="https://www.facebook.com/share/1AYsgrjVQV/" class="btn" target="_blank">
+            <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a href="https://www.instagram.com/fahim_way?igsh=MTl2bDRpMGU1NXA0aA==" class="btn" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://youtube.com/@edupapaaa?si=PtIgVAQK6NYUad_h" class="btn" target="_blank">
+            <i class="fab fa-youtube"></i> YouTube
+        </a>
+        <a href="https://wa.me/8801707549628" class="btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
     </div>
 
     <form action="https://formspree.io/f/meelvnwr" method="POST" class="contact-mini">
         <input type="text" name="name" class="input-small" placeholder="Your Name" required>
-        <textarea name="message" class="input-small" placeholder="Your Message..." rows="1" required></textarea>
-        <button type="submit" class="send-btn">SEND EMAIL</button>
+        <textarea name="message" class="input-small" placeholder="Message for me..." rows="1" required></textarea>
+        <button type="submit" class="send-btn">SEND MESSAGE</button>
     </form>
 
     <div class="quick">
-        <button onclick="copyNumber()">Copy No</button>
-        <button onclick="downloadVCard()">Save Contact</button>
-        <button onclick="toggleDark()">🌙 Mode</button>
+        <button onclick="copyNumber()">COPY NO</button>
+        <button onclick="downloadVCard()">SAVE CONTACT</button>
+        <button onclick="toggleDark()">🌙 MODE</button>
     </div>
 </div>
 
 <script>
-// Browser security allows auto-play only after first user interaction
-document.body.addEventListener('click', function() {
+// Auto-play music on first touch (Mobile Friendly)
+document.addEventListener('touchstart', function() {
     var audio = document.getElementById('bgm');
-    if (audio.paused) {
-        audio.play();
-    }
+    if (audio.paused) { audio.play(); }
 }, { once: true });
 
 function copyNumber(){
