@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-/* Smooth Mobile Experience */
+/* Reset & Mobile Optimization */
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; -webkit-tap-highlight-color: transparent; }
 
 body {
@@ -17,96 +17,94 @@ body {
     justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, #667eea, #764ba2);
-    padding: 20px;
+    padding: 15px;
     transition: 0.5s;
     overflow-x: hidden;
 }
 
-/* Glassmorphism Card */
+/* Glass Card */
 .card {
     width: 100%;
-    max-width: 380px;
+    max-width: 360px;
     padding: 30px 20px;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     box-shadow: 0 15px 35px rgba(0,0,0,0.3);
     text-align: center;
     color: white;
-    animation: fadeIn 1s ease-out;
+    animation: fadeInAnim 0.8s ease-out;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+@keyframes fadeInAnim {
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .profile-wrapper {
-    width: 110px; height: 110px;
+    width: 105px; height: 105px;
     margin: 0 auto 15px;
     border-radius: 50%;
-    padding: 4px;
+    padding: 3px;
     background: linear-gradient(45deg, #00f5ff, #ff00c8);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-.profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.2); }
 
-h2 { font-size: 24px; font-weight: 600; margin-bottom: 5px; }
-.bio { font-size: 13px; opacity: 0.9; margin-bottom: 20px; letter-spacing: 0.5px; }
+h2 { font-size: 22px; font-weight: 600; margin-bottom: 5px; }
+.bio { font-size: 12px; opacity: 0.85; margin-bottom: 20px; }
 
-/* Mobile Optimized Buttons */
-.links-container { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+/* Buttons Grid */
+.links-container { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
 
 .btn {
-    display: flex; align-items: center; justify-content: center; gap: 12px;
-    padding: 12px; border-radius: 15px;
-    background: rgba(255, 255, 255, 0.12);
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 11px; border-radius: 15px;
+    background: rgba(255, 255, 255, 0.15);
     color: white; text-decoration: none;
-    font-size: 14px; font-weight: 500;
-    transition: all 0.3s ease;
+    font-size: 13px; font-weight: 500;
+    transition: 0.3s;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.btn:active { transform: scale(0.96); background: rgba(255, 255, 255, 0.3); }
+.btn:active { transform: scale(0.97); background: rgba(255, 255, 255, 0.25); }
 
-/* Icons Color */
 .fa-facebook { color: #1877F2; }
 .fa-instagram { color: #E4405F; }
 .fa-youtube { color: #FF0000; }
 .fa-whatsapp { color: #25D366; }
 
 /* Contact Form */
-.contact-mini { margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+.contact-mini { margin-top: 10px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); }
 .input-small {
-    width: 100%; padding: 12px 15px; margin-bottom: 10px;
+    width: 100%; padding: 10px 15px; margin-bottom: 8px;
     border-radius: 12px; border: none;
     background: rgba(255, 255, 255, 0.1);
     color: white; font-size: 13px; outline: none;
 }
-.input-small::placeholder { color: rgba(255, 255, 255, 0.6); }
+.input-small::placeholder { color: rgba(255, 255, 255, 0.5); }
 
 .send-btn {
-    width: 100%; padding: 12px; border-radius: 12px; border: none;
+    width: 100%; padding: 10px; border-radius: 12px; border: none;
     background: #00f5ff; color: #333; font-weight: 600;
-    cursor: pointer; transition: 0.3s;
+    cursor: pointer; font-size: 12px;
 }
 
 /* Footer Actions */
-.quick { display: flex; justify-content: space-between; gap: 8px; margin-top: 20px; }
+.quick { display: flex; justify-content: space-between; gap: 6px; margin-top: 15px; }
 .quick button {
-    flex: 1; padding: 10px 5px; border: none; border-radius: 12px;
-    background: white; color: #333; font-size: 11px; font-weight: 600;
+    flex: 1; padding: 9px 2px; border: none; border-radius: 10px;
+    background: white; color: #333; font-size: 10px; font-weight: 600;
 }
 
-.dark { background: #1a1a2e; }
+.dark { background: #121212; }
 </style>
 </head>
-<body>
+<body onclick="playMusicWithFade()">
 
-<audio id="bgm" loop>
+<audio id="bgm" loop preload="auto">
     <source src="bgm.mp3" type="audio/mpeg">
 </audio>
 
@@ -115,28 +113,20 @@ h2 { font-size: 24px; font-weight: 600; margin-bottom: 5px; }
         <img src="profile.jpg" class="profile-img" alt="Fahim">
     </div>
 
-    <h2>Mr. Fahim</h2>
+    <h2>Commando Fahim</h2>
     <p class="bio">Digital Creator | Dream Builder</p>
 
     <div class="links-container">
-        <a href="https://www.facebook.com/share/1AYsgrjVQV/" class="btn" target="_blank">
-            <i class="fab fa-facebook"></i> Facebook
-        </a>
-        <a href="https://www.instagram.com/fahim_way?igsh=MTl2bDRpMGU1NXA0aA==" class="btn" target="_blank">
-            <i class="fab fa-instagram"></i> Instagram
-        </a>
-        <a href="https://youtube.com/@edupapaaa?si=PtIgVAQK6NYUad_h" class="btn" target="_blank">
-            <i class="fab fa-youtube"></i> YouTube
-        </a>
-        <a href="https://wa.me/8801707549628" class="btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
+        <a href="https://www.facebook.com/share/1AYsgrjVQV/" class="btn" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://www.instagram.com/fahim_way?igsh=MTl2bDRpMGU1NXA0aA==" class="btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://youtube.com/@edupapaaa?si=PtIgVAQK6NYUad_h" class="btn" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://wa.me/8801707549628" class="btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
 
     <form action="https://formspree.io/f/meelvnwr" method="POST" class="contact-mini">
         <input type="text" name="name" class="input-small" placeholder="Your Name" required>
-        <textarea name="message" class="input-small" placeholder="Message for me..." rows="1" required></textarea>
-        <button type="submit" class="send-btn">SEND MESSAGE</button>
+        <textarea name="message" class="input-small" placeholder="Message..." rows="1" required></textarea>
+        <button type="submit" class="send-btn">SEND EMAIL</button>
     </form>
 
     <div class="quick">
@@ -147,11 +137,29 @@ h2 { font-size: 24px; font-weight: 600; margin-bottom: 5px; }
 </div>
 
 <script>
-// Auto-play music on first touch (Mobile Friendly)
-document.addEventListener('touchstart', function() {
-    var audio = document.getElementById('bgm');
-    if (audio.paused) { audio.play(); }
-}, { once: true });
+var audio = document.getElementById('bgm');
+
+// Music Fade In Logic
+function playMusicWithFade() {
+    if (audio.paused) {
+        audio.volume = 0; // শুরুতে আওয়াজ জিরো
+        audio.play().then(() => {
+            // ৫ সেকেন্ডে ধীরে ধীরে আওয়াজ বাড়বে
+            var fadeAudio = setInterval(function () {
+                if (audio.volume < 0.9) {
+                    audio.volume += 0.05;
+                } else {
+                    clearInterval(fadeAudio);
+                }
+            }, 200); 
+        }).catch(function(error) {
+            console.log("Play failed:", error);
+        });
+    }
+}
+
+// মোবাইল টাচের জন্য ইভেন্ট
+document.addEventListener('touchstart', playMusicWithFade, { once: true });
 
 function copyNumber(){
     navigator.clipboard.writeText("01707549628");
