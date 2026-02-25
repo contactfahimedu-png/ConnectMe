@@ -20,7 +20,6 @@ body{
     transition: 0.5s;
 }
 
-/* Classic Glass Card */
 .card{
     width:360px;
     padding:30px;
@@ -51,13 +50,12 @@ body{
 .profile-img{ width:100%; height:100%; border-radius:50%; object-fit:cover; }
 
 h2{ margin-top:15px; font-weight:600; font-size: 22px; }
-.bio{ font-size:13px; margin:5px 0; opacity:0.9; }
+.bio{ font-size:13px; margin:5px 0 15px 0; opacity:0.9; }
 
-/* Contact Form Inside Card */
 .contact-mini { margin: 15px 0; }
 .input-small {
     width: 100%;
-    padding: 8px 12px;
+    padding: 10px 15px;
     margin-bottom: 8px;
     border-radius: 20px;
     border: none;
@@ -70,7 +68,7 @@ h2{ margin-top:15px; font-weight:600; font-size: 22px; }
 
 .send-btn {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border-radius: 20px;
     border: none;
     background: #00f5ff;
@@ -78,9 +76,11 @@ h2{ margin-top:15px; font-weight:600; font-size: 22px; }
     font-weight: 600;
     cursor: pointer;
     font-size: 12px;
+    transition: 0.3s;
 }
 
-/* Buttons */
+.send-btn:hover { background: #fff; transform: scale(1.02); }
+
 .btn{
     display:flex; align-items:center; justify-content:center; gap:10px;
     margin:6px 0; padding:10px;
@@ -90,7 +90,6 @@ h2{ margin-top:15px; font-weight:600; font-size: 22px; }
 
 .btn:hover{ background:white; color:#333; transform:translateY(-2px); }
 
-/* Quick Actions */
 .quick{ display:flex; justify-content:space-between; margin-top:15px; gap: 5px; }
 .quick button{
     flex:1; padding:8px; border:none; border-radius:15px;
@@ -98,41 +97,24 @@ h2{ margin-top:15px; font-weight:600; font-size: 22px; }
 }
 
 .quick button:hover{ background:#333; color:white; }
-
-/* Music Player Style */
-.music-box {
-    margin-top: 10px;
-    background: rgba(0,0,0,0.2);
-    padding: 5px 15px;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
 .dark{ background:linear-gradient(135deg,#141e30,#243b55); }
 </style>
 </head>
 <body>
 
+<audio id="bgm" loop autoplay>
+    <source src="bgm.mp3" type="audio/mpeg">
+</audio>
+
 <div class="card">
     <div class="profile-wrapper">
-        <img src="profile.jpg" class="profile-img">
+        <img src="profile.jpg" class="profile-img" alt="Profile">
     </div>
 
     <h2>Commando Fahim</h2>
     <p class="bio">Digital Creator | Dream Builder</p>
 
-    <div class="music-box">
-        <span style="font-size: 10px;">Lofi Music</span>
-        <i class="fas fa-play" id="pIcon" onclick="toggleMusic()" style="cursor:pointer"></i>
-        <audio id="bgMusic" loop>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div style="margin-top: 15px;">
+    <div style="margin-top: 10px;">
         <a href="https://www.facebook.com/share/1AYsgrjVQV/" class="btn" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
         <a href="https://wa.me/8801707549628" class="btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
@@ -151,6 +133,14 @@ h2{ margin-top:15px; font-weight:600; font-size: 22px; }
 </div>
 
 <script>
+// Browser security allows auto-play only after first user interaction
+document.body.addEventListener('click', function() {
+    var audio = document.getElementById('bgm');
+    if (audio.paused) {
+        audio.play();
+    }
+}, { once: true });
+
 function copyNumber(){
     navigator.clipboard.writeText("01707549628");
     alert("Number Copied!");
@@ -167,18 +157,6 @@ function downloadVCard(){
 
 function toggleDark(){
     document.body.classList.toggle("dark");
-}
-
-function toggleMusic() {
-    const music = document.getElementById("bgMusic");
-    const icon = document.getElementById("pIcon");
-    if (music.paused) {
-        music.play();
-        icon.classList.replace("fa-play", "fa-pause");
-    } else {
-        music.pause();
-        icon.classList.replace("fa-pause", "fa-play");
-    }
 }
 </script>
 
